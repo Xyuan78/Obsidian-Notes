@@ -1,0 +1,23 @@
+views:
+  - type: table
+    name: 表格
+    order:
+      - file.name
+      - file.backlinks
+      - file.ctime
+      - file.basename
+      - file.embeds
+      - file.folder
+      - file.mtime
+  - type: table
+    name: 视图
+  - type: table
+    name: Python 笔记
+    filters:
+      and:
+        - file.inFolder("Python")
+        - file.ext == "md"
+    order:
+      - file.name
+      - file.backlinks
+      - file.mtime

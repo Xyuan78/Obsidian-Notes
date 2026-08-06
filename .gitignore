@@ -1,0 +1,26 @@
+﻿# Obsidian 工作区状态（易变，不入库）
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# Claude 对话记录（隐私，仅保留设置）
+.claudian/**/conv-*.meta.json
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.pylib/
+.venv/
+
+# IDE
+.idea/
+
+# 临时文件
+*.tmp
+~$*
+

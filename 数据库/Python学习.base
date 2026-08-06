@@ -1,0 +1,30 @@
+filters:
+  and:
+    - file.inFolder("Python")
+    - file.ext == "md"
+formulas:
+  size_kb: (file.size / 1024).round(1)
+  links_count: file.links.length
+  backlinks_count: file.backlinks.length
+  stage: if(file.basename == "Python学习路线", "索引", if(/^[1-4]\./.matches(file.basename), "基础入门", if(/^[5-8]\./.matches(file.basename), "进阶核心", if(/^[9-12]\./.matches(file.basename), "健壮性与工具", if(/^13\./.matches(file.basename), "编程范式", "实战应用")))))
+properties:
+  formula.stage:
+    displayName: 阶段
+views:
+  - type: table
+    name: 学习路径总览
+    groupBy:
+      property: formula.stage
+      direction: ASC
+    order:
+      - file.name
+      - formula.backlinks_count
+      - formula.links_count
+      - formula.size_kb
+      - file.mtime
+  - type: table
+    name: 全部笔记
+    order:
+      - file.name
+      - file.backlinks
+      - file.mtime
